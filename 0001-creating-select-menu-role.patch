@@ -183,19 +183,6 @@ index 00000000..9c6b341f
 +    await queryRunner.dropTable("select_roles");
 +  }
 +}
-diff --git a/backend/src/plugins/ReactionRoles/events/ButtonInteractionEvt.ts b/backend/src/plugins/ReactionRoles/events/ButtonInteractionEvt.ts
-index 65ace443..8ff382ca 100644
---- a/backend/src/plugins/ReactionRoles/events/ButtonInteractionEvt.ts
-+++ b/backend/src/plugins/ReactionRoles/events/ButtonInteractionEvt.ts
-@@ -18,7 +18,7 @@ export const ButtonInteractionEvt = reactionRolesEvt({
- 
-   async listener(meta) {
-     const int = meta.args.interaction;
--    if (!int.isMessageComponent()) return;
-+    if (!int.isMessageComponent() || !int.isButton()) return;
- 
-     const cfg = meta.pluginData.config.get();
-     const split = int.customId.split(BUTTON_CONTEXT_SEPARATOR);
 diff --git a/backend/src/plugins/SelectMenuRoles/SelectMenuRolesPlugin.ts b/backend/src/plugins/SelectMenuRoles/SelectMenuRolesPlugin.ts
 new file mode 100644
 index 00000000..1aa6a69b
@@ -779,11 +766,11 @@ index dc8adf25..f98fc40c 100644
  import { SelfGrantableRolesPlugin } from "./SelfGrantableRoles/SelfGrantableRolesPlugin";
  import { SlowmodePlugin } from "./Slowmode/SlowmodePlugin";
  import { SpamPlugin } from "./Spam/SpamPlugin";
-@@ -73,6 +74,7 @@ export const guildPlugins: Array<ZeppelinGuildPluginBlueprint<any>> = [
-   ContextMenuPlugin,
-   PhishermanPlugin,
+@@ -77,6 +78,7 @@ export const guildPlugins: Array<ZeppelinGuildPluginBlueprint<any>> = [
    InternalPosterPlugin,
-+  SelectMenuRolesPlugin
+   RoleManagerPlugin,
+   RoleButtonsPlugin,
++  SelectMenuRolesPlugin,
  ];
  
  // prettier-ignore
