@@ -33,11 +33,14 @@ import { TimeAndDatePlugin } from "./TimeAndDate/TimeAndDatePlugin";
 import { UsernameSaverPlugin } from "./UsernameSaver/UsernameSaverPlugin";
 import { UtilityPlugin } from "./Utility/UtilityPlugin";
 import { WelcomeMessagePlugin } from "./WelcomeMessage/WelcomeMessagePlugin";
+import { SelectMenuRolesPlugin } from "./SelectMenuRoles/SelectMenuRolesPlugin";
 import { ZeppelinGlobalPluginBlueprint, ZeppelinGuildPluginBlueprint } from "./ZeppelinPluginBlueprint";
 import { PhishermanPlugin } from "./Phisherman/PhishermanPlugin";
 import { InternalPosterPlugin } from "./InternalPoster/InternalPosterPlugin";
 import { RoleManagerPlugin } from "./RoleManager/RoleManagerPlugin";
 import { RoleButtonsPlugin } from "./RoleButtons/RoleButtonsPlugin";
+import { SocialMediaPosterPlugin } from "./SocialMediaPoster/SocialMediaPosterPlugin";
+import { ActivitiesPlugin } from "./Activities/ActivitiesPlugin";
 
 // prettier-ignore
 export const guildPlugins: Array<ZeppelinGuildPluginBlueprint<any>> = [
@@ -77,6 +80,9 @@ export const guildPlugins: Array<ZeppelinGuildPluginBlueprint<any>> = [
   InternalPosterPlugin,
   RoleManagerPlugin,
   RoleButtonsPlugin,
+  SocialMediaPosterPlugin,
+  ActivitiesPlugin,
+  SelectMenuRolesPlugin,
 ];
 
 // prettier-ignore
