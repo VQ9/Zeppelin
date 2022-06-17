@@ -65,7 +65,6 @@ const configPreprocessor: ConfigPreprocessorFn<SelectMenuRolesPluginType> = (opt
           const item = defMenu.items[i2];
           
           console.log(item)
-          console.log(defMenu)
 
           // if (!isValidSnowflake(item.role)) {
           //   throw new StrictValidationError([
