@@ -79,8 +79,8 @@ const snowflakePattern = /^[1-9]\d+$/;
 export function isValidSnowflake(str: string) {
   if (!str.match(snowflakePattern)) return false;
   if (parseInt(str, 10) < MIN_SNOWFLAKE) return false;
-  if (BigInt(str) > MAX_SNOWFLAKE) return false;
-  return true;
+  return BigInt(str) <= MAX_SNOWFLAKE;
+  
 }
 
 export const DISCORD_HTTP_ERROR_NAME = "DiscordHTTPError";

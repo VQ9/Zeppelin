@@ -64,11 +64,11 @@ const configPreprocessor: ConfigPreprocessorFn<SelectMenuRolesPluginType> = (opt
         for (let i2 = 0; i2 < defMenu.items.length; i2++) {
           const item = defMenu.items[i2];
 
-          if (!isValidSnowflake(item.role)) {
-            throw new StrictValidationError([
-              `Invalid value for menus/${defaultSelectMenuNames[i]}/items/${i2}/role: ${item.role} is not a valid snowflake.`,
-            ]);
-          }
+          // if (!isValidSnowflake(item.role)) {
+          //   throw new StrictValidationError([
+          //     `Invalid value for menus/${defaultSelectMenuNames[i]}/items/${i2}/role: ${item.role} is not a valid snowflake.`,
+          //   ]);
+          // }
           if (!item.label && !item.emoji) {
             throw new StrictValidationError([
               `Invalid values for menus/${defaultSelectMenuNames[i]}/items/${i2}/(label|emoji): Must have label, emoji or both set for the select menu to be valid.`,
