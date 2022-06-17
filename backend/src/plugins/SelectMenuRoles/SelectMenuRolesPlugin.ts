@@ -71,11 +71,11 @@ const configPreprocessor: ConfigPreprocessorFn<SelectMenuRolesPluginType> = (opt
           //     `Invalid value for menus/${defaultSelectMenuNames[i]}/items/${i2}/role: ${item.role} is not a valid snowflake.`,
           //   ]);
           // }
-          if (!item.label || !item.emoji) {
-            throw new StrictValidationError([
-              `Invalid values for menus/${defaultSelectMenuNames[i]}/items/${i2}/(label|emoji): Must have label, emoji or both set for the select menu to be valid.`,
-            ]);
-          }
+          // if (!item.label || !item.emoji) {
+          //   throw new StrictValidationError([
+          //     `Invalid values for menus/${defaultSelectMenuNames[i]}/items/${i2}/(label|emoji): Must have label, emoji or both set for the select menu to be valid.`,
+          //   ]);
+          // }
         }
       }
     }
