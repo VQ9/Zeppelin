@@ -37,8 +37,6 @@ import { runPhishermanCacheCleanupLoop, runPhishermanReportingLoop } from "./dat
 import { hasPhishermanMasterAPIKey } from "./data/Phisherman";
 import { consumeQueryStats } from "./data/queryLogger";
 import { EventEmitter } from "events";
-import {runActivitiesLoop} from "./data/loops/activitiesLoop";
-import {hasActivitiesPluginEnabled} from "./plugins/Activities/ActivitiesPlugin";
 
 if (!process.env.KEY) {
   // tslint:disable-next-line:no-console
