@@ -37,6 +37,8 @@ import { runPhishermanCacheCleanupLoop, runPhishermanReportingLoop } from "./dat
 import { hasPhishermanMasterAPIKey } from "./data/Phisherman";
 import { consumeQueryStats } from "./data/queryLogger";
 import { EventEmitter } from "events";
+import {runActivitiesLoop} from "./data/loops/activitiesLoop";
+import {hasActivitiesPluginEnabled} from "./plugins/Activities/ActivitiesPlugin";
 
 if (!process.env.KEY) {
   // tslint:disable-next-line:no-console
@@ -350,6 +352,7 @@ connect().then(async () => {
 
   client.once("ready", () => {
     startUptimeCounter();
+    client.user?.setPresence({ activities: [{ name: "netflix", type: "WATCHING" }] });
   });
 
   client.on(Constants.Events.RATE_LIMIT, (data) => {
@@ -370,7 +373,8 @@ connect().then(async () => {
     runExpiredArchiveDeletionLoop();
     await sleep(10 * SECONDS);
     runSavedMessageCleanupLoop();
-
+    // await sleep(10 *SECONDS);
+    // runActivitiesLoop();
     if (hasPhishermanMasterAPIKey()) {
       await sleep(10 * SECONDS);
       runPhishermanCacheCleanupLoop();
