@@ -53,6 +53,7 @@ export const SelectMenuRolesPlugin = zeppelinGuildPlugin<SelectMenuRolesPluginTy
   configPreprocessor: (options) => {
     const config = options.config;
     const selectGroupsArray = Array.isArray(options.config?.select_groups) ? options.config.select_groups : [];
+    console.log(selectGroupsArray)
 
     for (const [groupName, group] of Object.entries(options.config?.select_groups ?? {})) {
       const defaultSelectMenuNames = Object.keys(group.menus);
@@ -82,20 +83,6 @@ export const SelectMenuRolesPlugin = zeppelinGuildPlugin<SelectMenuRolesPluginTy
           throw new StrictValidationError([
             `Invalid values for menus/${defaultSelectMenuNames[i]}/items: Must have between 1 and 25 items configured`,
           ]);
-        }
-        for (let i2 = 0; i2 < defMenu.items.length; i2++) {
-          const item = defMenu.items[i2];
-
-          if (!isValidSnowflake(item.role)) {
-            throw new StrictValidationError([
-              `Invalid value for menus/${defaultSelectMenuNames[i]}/items/${i2}/role: ${item.role} is not a valid snowflake.`,
-            ]);
-          }
-          if (!item.label && !item.emoji) {
-            throw new StrictValidationError([
-              `Invalid values for menus/${defaultSelectMenuNames[i]}/items/${i2}/(label|emoji): Must have label, emoji or both set for the select menu to be valid.`,
-            ]);
-          }
         }
       }
     }
